@@ -75,6 +75,12 @@
 
 命令行工具构建依赖于仓颉 `SDK`，请参考[仓颉 SDK 集成构建指南](https://gitcode.com/Cangjie/cangjie_build/blob/dev/README_zh.md)
 
+## Fuzz 测试说明
+
+当前开源仓内未提供可直接执行的 fuzz 入口（如 `LLVMFuzzerTestOneInput` 或独立 fuzz target）。
+如需本地开展 fuzz 测试，需要先在目标组件中补充 fuzz harness 与构建目标，再结合组件的构建脚本进行编译和执行。
+建议在新增 fuzz 目标时使用 sanitizer（如 `-fsanitize=fuzzer,address`）并复用现有测试样例作为初始语料。
+
 ## 开源协议
 
 本项目基于 [Apache-2.0 with Runtime Library Exception](./LICENSE)，请自由地享受和参与开源。
